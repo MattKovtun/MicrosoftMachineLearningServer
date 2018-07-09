@@ -1,4 +1,4 @@
-## Example of Microsoft Machine Learning Server usage<br>
+## Example of Microsoft Machine Learning Server usage, which shows how to deploy trained model and then use it<br>
 #### In order to be able to test Microsoft Machine Learning Server (MMLS) first of all you should install it<br>
 https://docs.microsoft.com/en-us/machine-learning-server/install/machine-learning-server-windows-install<br>
 Don't forget to deploy it, also remember credentials.<br>
