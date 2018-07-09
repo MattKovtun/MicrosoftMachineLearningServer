@@ -2,7 +2,7 @@ from azureml.deploy import DeployClient
 from azureml.deploy.server import MLServer
 import numpy as np
 import pickle
-from keras.models import load_model, model_from_json
+from keras.models import model_from_json
 from keras_pickle_wrapper import KerasPickleWrapper
 from PIL import Image
 
@@ -25,7 +25,6 @@ python_model = pickle.dumps(model_wrapper)
 
 
 # Define Function to deploy as webservice
-
 def deploy():
     def func(x):
         import numpy as np
@@ -52,15 +51,11 @@ def deploy():
         .description('keras model example') \
         .deploy()
 
-    # with open("swagger.json", "w") as swagger_file:
-    #     swagger_file.write("%s" % service.swagger())
-    #
 
 
 def explore():
     img = Image.open('images/img_10.jpg')
-    x = np.array(img)  # im2arr.shape: height x width x channel
-    # x = np.ones((28, 28))
+    x = np.array(img)
     svc = client.get_service('KerasModel', version='1.0.0')
     res = svc.func(x)
     # output is the predicted number
